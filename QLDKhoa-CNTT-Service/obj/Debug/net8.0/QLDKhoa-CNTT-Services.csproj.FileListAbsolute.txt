@@ -1,0 +1,15 @@
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\bin\Debug\net8.0\QLDKhoa-CNTT-Services.deps.json
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\bin\Debug\net8.0\QLDKhoa-CNTT-Services.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\bin\Debug\net8.0\QLDKhoa-CNTT-Services.pdb
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\bin\Debug\net8.0\QLDKhoa-CNTT-Repository.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\bin\Debug\net8.0\QLDKhoa-CNTT-Repository.pdb
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT-Services.csproj.AssemblyReference.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT-Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT-Services.AssemblyInfoInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT-Services.AssemblyInfo.cs
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT-Services.csproj.CoreCompileInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-.21A9BBAA.Up2Date
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT-Services.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\refint\QLDKhoa-CNTT-Services.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT-Services.pdb
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\ref\QLDKhoa-CNTT-Services.dll

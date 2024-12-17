@@ -1,0 +1,14 @@
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT.DAL.deps.json
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT.DAL.runtimeconfig.json
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT.DAL.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT.DAL.pdb
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.csproj.AssemblyReference.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.AssemblyInfoInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.AssemblyInfo.cs
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.csproj.CoreCompileInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\refint\QLDKhoa-CNTT.DAL.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.pdb
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.genruntimeconfig.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\ref\QLDKhoa-CNTT.DAL.dll

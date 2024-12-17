@@ -1,0 +1,14 @@
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT-Repository.deps.json
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT-Repository.runtimeconfig.json
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT-Repository.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\bin\Debug\net8.0\QLDKhoa-CNTT-Repository.pdb
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.csproj.AssemblyReference.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.AssemblyInfoInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.AssemblyInfo.cs
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.csproj.CoreCompileInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\refint\QLDKhoa-CNTT-Repository.dll
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.pdb
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT-Repository.genruntimeconfig.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\ref\QLDKhoa-CNTT-Repository.dll
