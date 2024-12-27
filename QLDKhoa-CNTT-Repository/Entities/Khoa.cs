@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace QLDKhoa_CNTT.DAL.Entities;
 
-public partial class KhoaHoc
+public partial class Khoa
 {
     public int Id { get; set; }
 

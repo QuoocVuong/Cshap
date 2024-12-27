@@ -12,7 +12,7 @@ namespace QLDKhoa_CNTT.BLL
 
     {
         private KhoaHocRepository _repo = new KhoaHocRepository();
-        public List<KhoaHoc> GetAllKhoaHocs()
+        public List<Khoa> GetAllKhoaHocs()
         {
             return _repo.GetAll();
         }

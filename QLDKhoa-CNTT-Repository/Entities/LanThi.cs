@@ -7,9 +7,9 @@ public partial class LanThi
 {
     public int Id { get; set; }
 
-    public int? LanThi1 { get; set; }
+    public int LanThi1 { get; set; }
 
-    public DateOnly? NgayThi { get; set; }
+    public DateOnly NgayThi { get; set; }
 
     public int IdMonHoc { get; set; }
 

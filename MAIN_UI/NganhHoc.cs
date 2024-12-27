@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLDKhoa_CNTT.BLL.Services;
 
 namespace MAIN_UI
 {
@@ -34,12 +35,7 @@ namespace MAIN_UI
 
         private void NganhHoc_Load(object sender, EventArgs e)
         {
-            var result = _nganhHocService.GetAllNganhHocs();
-            dgvnganhhoclist.DataSource = null;
-            dgvnganhhoclist.DataSource = result;
-            dgvnganhhoclist.Columns["HocKies"].Visible = false;
-            dgvnganhhoclist.Columns["IdKhoaNavigation"].Visible = false;
-            dgvnganhhoclist.Columns["LopHocs"].Visible = false;
+            LoadInToDataGrip();
             // do toan bo khoa hoc vao combobox hoac dropdown
             cbbkhoa.DataSource = _khoaService.GetAllKhoaHocs();
             //giau het cot cua khoahoc chi show cot ten khoa hoc
@@ -47,7 +43,6 @@ namespace MAIN_UI
             cbbkhoa.ValueMember = "Id"; //lay gia tri theo id
             txtIdNganhHoc.Enabled = false;
             txtnganhhoc.Enabled = false;
-            txtTimKiem.Enabled = false;
 
 
         }
@@ -93,17 +88,60 @@ namespace MAIN_UI
         private void btnxoa_Click(object sender, EventArgs e)
         {
 
-            int id;
-            if (string.IsNullOrWhiteSpace(txtIdNganhHoc.Text) || !int.TryParse(txtIdNganhHoc.Text, out id))
+            //int id;
+            //if (string.IsNullOrWhiteSpace(txtIdNganhHoc.Text) || !int.TryParse(txtIdNganhHoc.Text, out id))
+            //{
+            //    MessageBox.Show("Nganh Hoc is required", "Ten Nganh Hoc required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
+            //_nganhHocService.DeletedNganhHoc(id);
+
+            //var result = _nganhHocService.GetAllNganhHocs();
+            //dgvnganhhoclist.DataSource = null;
+            //dgvnganhhoclist.DataSource = result;
+            int id = int.Parse(txtIdNganhHoc.Text); // Lấy mã sản phẩm từ textbox.
+            string tenNganhHoc = txtnganhhoc.Text;
+
+            if (string.IsNullOrWhiteSpace(txtnganhhoc.Text) || !int.TryParse(txtIdNganhHoc.Text, out id)) // Kiểm tra mã sản phẩm có rỗng hay không.
             {
-                MessageBox.Show("Nganh Hoc is required", "Ten Nganh Hoc required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Mã nganh hoc là bắt buộc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _nganhHocService.DeletedNganhHoc(id);
 
+            try
+            {
+                // Hiển thị hộp thoại xác nhận xóa.
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa '{tenNganhHoc}'?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes) // Nếu người dùng chọn Yes.
+                {
+                    if (_nganhHocService.DeletedNganhHoc(id))
+                    {
+                        MessageBox.Show("Xóa Thanh Cong.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadInToDataGrip(); // Load lại dữ liệu sau khi xóa.
+                        txtIdNganhHoc.Clear(); // Xóa trắng các textbox.
+                        txtnganhhoc.Text = "";
+                        cbbkhoa.SelectedValue = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                } // Nếu người dùng chọn No, không làm gì cả.
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa : " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadInToDataGrip()
+        {
             var result = _nganhHocService.GetAllNganhHocs();
             dgvnganhhoclist.DataSource = null;
             dgvnganhhoclist.DataSource = result;
+            dgvnganhhoclist.Columns["IdKhoaNavigation"].Visible = false;
+            dgvnganhhoclist.Columns["LopHocs"].Visible = false;
+
         }
 
         private void btnsua_Click(object sender, EventArgs e)
@@ -120,12 +158,7 @@ namespace MAIN_UI
             themSuaNganhHoc.id = int.Parse(txtIdNganhHoc.Text);
             themSuaNganhHoc.ShowDialog();
             //sau khi sua xong thi dong va reload lai gripdata
-            var result = _nganhHocService.GetAllNganhHocs();
-            dgvnganhhoclist.DataSource = null;
-            dgvnganhhoclist.DataSource = result;
-            dgvnganhhoclist.Columns["HocKies"].Visible = false;
-            dgvnganhhoclist.Columns["IdKhoaNavigation"].Visible = false;
-            dgvnganhhoclist.Columns["LopHocs"].Visible = false;
+            LoadInToDataGrip();
         }
 
         private void btnthem_Click(object sender, EventArgs e)
@@ -148,10 +181,7 @@ namespace MAIN_UI
         private void ThemSuaNganhHoc_DataSaved(object sender, EventArgs e)
         {
             //sau khi them xong thi dong va reload lai gripdata
-            var result = _nganhHocService.GetAllNganhHocs();
-            dgvnganhhoclist.DataSource = null;
-            dgvnganhhoclist.DataSource = result;
-            dgvnganhhoclist.Columns["HocKies"].Visible = false;
+            LoadInToDataGrip();
             dgvnganhhoclist.Columns["IdKhoaNavigation"].Visible = false;
             dgvnganhhoclist.Columns["LopHocs"].Visible = false;
         }

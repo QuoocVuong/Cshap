@@ -11,9 +11,7 @@ public partial class NganhHoc
 
     public int IdKhoa { get; set; }
 
-    public virtual ICollection<HocKy> HocKies { get; set; } = new List<HocKy>();
-
-    public virtual KhoaHoc IdKhoaNavigation { get; set; } = null!;
+    public virtual Khoa IdKhoaNavigation { get; set; } = null!;
 
     public virtual ICollection<LopHoc> LopHocs { get; set; } = new List<LopHoc>();
 }

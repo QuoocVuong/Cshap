@@ -13,5 +13,9 @@ public partial class TaiKhoan
 
     public int? Quyen { get; set; }
 
+    public int? IdNguoiDung { get; set; }
+
+    public int? LoaiNguoiDung { get; set; }
+
     public string? GhiChu { get; set; }
 }

@@ -7,6 +7,7 @@ C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.AssemblyInfoInputs.cache
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.AssemblyInfo.cs
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.csproj.CoreCompileInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.sourcelink.json
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.dll
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\refint\QLDKhoa-CNTT.DAL.dll
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Repository\obj\Debug\net8.0\QLDKhoa-CNTT.DAL.pdb

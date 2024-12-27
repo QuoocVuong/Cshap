@@ -16,7 +16,7 @@ namespace MAIN_UI
     public partial class HocKyForm : Form
     {
         private HocKyService _hocKyService = new();
-        private NganhHocService _nganhHocService = new();
+        private NamHocService _namHocService = new();
 
         public HocKyForm()
         {
@@ -32,9 +32,9 @@ namespace MAIN_UI
         {
             LoadDataintoDataGripView();
             // do toan bo khoa hoc vao combobox hoac dropdown
-            cbbNganhHoc.DataSource = _nganhHocService.GetAllNganhHocs();
+            cbbNganhHoc.DataSource = _namHocService.GetAllNamHocs();
             //giau het cot cua khoahoc chi show cot ten khoa hoc
-            cbbNganhHoc.DisplayMember = "TenNganhHoc";// hien thi ten khoa ra ngoai combobox
+            cbbNganhHoc.DisplayMember = "TenNamHoc";// hien thi ten khoa ra ngoai combobox
             cbbNganhHoc.ValueMember = "Id"; //lay gia tri theo id
             txtidhocky.Enabled = false;
             txtTenHocKy.Enabled = false;
@@ -47,8 +47,8 @@ namespace MAIN_UI
             var result = _hocKyService.GetAllHocKys();
             dgvHocKy.DataSource = null;
             dgvHocKy.DataSource = result;
-            dgvHocKy.Columns["HinhThucs"].Visible = false;
-            dgvHocKy.Columns["IdNganhHocNavigation"].Visible = false;
+            dgvHocKy.Columns["IdNamHocNavigation"].Visible = false;
+            dgvHocKy.Columns["MonHocs"].Visible = false;
             //dgvHocKy.Columns["LopHocs"].Visible = false;
         }
 
@@ -58,7 +58,7 @@ namespace MAIN_UI
             {
                 txtidhocky.Text = hocKy.Id.ToString();
                 txtTenHocKy.Text = hocKy.TenHocKy;
-                cbbNganhHoc.SelectedValue = hocKy.IdNganhHoc;
+                cbbNganhHoc.SelectedValue = hocKy.IdNamHoc;
             }
         }
 
@@ -74,42 +74,81 @@ namespace MAIN_UI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtidhocky.Text); // Lấy mã sản phẩm từ textbox.
-            string tenHocKy = txtTenHocKy.Text;
-
-            if (string.IsNullOrWhiteSpace(txtTenHocKy.Text) || !int.TryParse(txtidhocky.Text, out id)) // Kiểm tra mã sản phẩm có rỗng hay không.
+            // Kiểm tra xem textbox có chứa giá trị hợp lệ không
+            if (!int.TryParse(txtidhocky.Text, out int id))
             {
-                MessageBox.Show("Mã Hoc Ky là bắt buộc.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Mã Học Kỳ phải là số.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             try
             {
-                // Hiển thị hộp thoại xác nhận xóa.
-                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa '{tenHocKy}'?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                // Tìm học kỳ dựa trên ID
+                var hocKy = _hocKyService.GetAHocKy(id);
 
-                if (result == DialogResult.Yes) // Nếu người dùng chọn Yes.
+                if (hocKy == null)
                 {
-                    if (_hocKyService.DeleteHocKy(id)) // Gọi hàm XoaSanPham trong SanPhamBUS để xóa sản phẩm.
-                    {
-                        MessageBox.Show("Xóa sản phẩm thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadDataintoDataGripView(); // Load lại dữ liệu sau khi xóa.
-                        txtidhocky.Text = ""; // Xóa trắng các textbox.
-                        txtTenHocKy.Text = "";
-                        cbbNganhHoc.SelectedValue = "";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Xóa hoc ky thất bại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                } // Nếu người dùng chọn No, không làm gì cả.
+                    MessageBox.Show("Không tìm thấy học kỳ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Hiển thị hộp thoại xác nhận xóa
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa '{hocKy.TenHocKy}'?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    _hocKyService.DeleteHocKy(id);
+                    MessageBox.Show("Xóa học kỳ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataintoDataGripView(); // Load lại dữ liệu
+                    txtidhocky.Clear();
+                    txtTenHocKy.Clear();
+                    cbbNganhHoc.SelectedIndex = -1; // Reset combobox
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi xóa hoc ky: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi khi xóa học kỳ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        private void HocKyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing) // Chỉ xử lý khi người dùng nhấn dấu x
+            {
+                e.Cancel = true; // Ngăn đóng form mặc định
+                this.Hide(); // Ẩn form
+            }
+        }
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            ThemSuaXoaHocKy themSuaXoaHocKy = new();
+            themSuaXoaHocKy.DavaSaver += ThemSuaHocKy_DataSave;
+            themSuaXoaHocKy.id = null;
+            themSuaXoaHocKy.ShowDialog();
+        }
+        private void ThemSuaHocKy_DataSave(object sender, EventArgs e)
+        {
+            //sau khi them xong thi dong va reload lai gripdata
+            LoadDataintoDataGripView();
+            //dgvnganhhoclist.Columns["IdKhoaNavigation"].Visible = false;
+            //dgvnganhhoclist.Columns["LopHocs"].Visible = false;
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            int id;
+            if (string.IsNullOrWhiteSpace(txtTenHocKy.Text) || !int.TryParse(txtidhocky.Text, out id))
+            {
+                MessageBox.Show("Hoc Ky is invalid", "Chon dong de sua", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            //da co id roi thi dua du lieu
+            ThemSuaXoaHocKy themSuaXoaHocKy = new();
+            themSuaXoaHocKy.id = int.Parse(txtidhocky.Text);
+            themSuaXoaHocKy.ShowDialog();
+            //sau khi sua xong thi dong va reload lai gripdata
+            LoadDataintoDataGripView();
+        }
     }
 }

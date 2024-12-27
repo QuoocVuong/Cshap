@@ -36,6 +36,8 @@
             btnxoatenkhoa = new Button();
             dgvKhoaHocList = new DataGridView();
             button1 = new Button();
+            label3 = new Label();
+            txtIdKhoa = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvKhoaHocList).BeginInit();
             SuspendLayout();
             // 
@@ -124,11 +126,30 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            label3.Location = new Point(209, 171);
+            label3.Name = "label3";
+            label3.Size = new Size(33, 28);
+            label3.TabIndex = 8;
+            label3.Text = "ID";
+            // 
+            // txtIdKhoa
+            // 
+            txtIdKhoa.Location = new Point(341, 171);
+            txtIdKhoa.Name = "txtIdKhoa";
+            txtIdKhoa.Size = new Size(279, 27);
+            txtIdKhoa.TabIndex = 9;
+            // 
             // KhoaHoc
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(txtIdKhoa);
+            Controls.Add(label3);
             Controls.Add(button1);
             Controls.Add(dgvKhoaHocList);
             Controls.Add(btnxoatenkhoa);
@@ -158,5 +179,7 @@
         private Button btnxoatenkhoa;
         private DataGridView dgvKhoaHocList;
         private Button button1;
+        private Label label3;
+        private TextBox txtIdKhoa;
     }
 }

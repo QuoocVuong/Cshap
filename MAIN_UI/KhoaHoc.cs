@@ -1,4 +1,5 @@
 ﻿using QLDKhoa_CNTT.BLL;
+using QLDKhoa_CNTT.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -67,61 +68,110 @@ namespace MAIN_UI
         //}
         private void dgvKhoaHocLis_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvKhoaHocList.CurrentRow != null && dgvKhoaHocList.CurrentRow.DataBoundItem is QLDKhoa_CNTT.DAL.Entities.KhoaHoc khoaHoc)
+            if (dgvKhoaHocList.CurrentRow != null && dgvKhoaHocList.CurrentRow.DataBoundItem is Khoa khoa)
             {
-                txttenkhoa.Text = khoaHoc.TenKhoa;
+                txtIdKhoa.Text = khoa.Id.ToString();
+                txttenkhoa.Text = khoa.TenKhoa;
             }
+            
         }
-        //private void btnxoatenkhoa_Click(object sender, EventArgs e)
-        //{
-        //    int id;
-        //    if (string.IsNullOrWhiteSpace(txttenkhoa.Text) || !int.TryParse(txttenkhoa.Text, out id))
-        //    {
-        //        MessageBox.Show("Khoa Hoc is required", "Ten Khoa Hoc required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        //        return;
-        //    }
-        //    _service.DeletedKhoaHoc(id);
-
-        //    var result = _service.GetAllKhoaHocs();
-        //    dgvKhoaHocList.DataSource = null;
-        //    dgvKhoaHocList.DataSource = result;
-        //}
         private void btnxoatenkhoa_Click(object sender, EventArgs e)
         {
-            if (dgvKhoaHocList.SelectedRows.Count == 0)
+            //int id;
+            //if (string.IsNullOrWhiteSpace(txttenkhoa.Text) || !int.TryParse(txtIdKhoa.Text, out id))
+            //{
+            //    MessageBox.Show("Khoa Hoc is required", "Ten Khoa Hoc required", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
+            //_service.DeletedKhoaHoc(id);
+
+            //var result = _service.GetAllKhoaHocs();
+            //dgvKhoaHocList.DataSource = null;
+            //dgvKhoaHocList.DataSource = result;
+
+
+            // Kiểm tra xem textbox có chứa giá trị hợp lệ không
+            if (!int.TryParse(txtIdKhoa.Text, out int id))
             {
-                MessageBox.Show("Please select a Khoa Hoc to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui long chon khoa can xoa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var selectedKhoaHoc = (QLDKhoa_CNTT.DAL.Entities.KhoaHoc)dgvKhoaHocList.SelectedRows[0].DataBoundItem;
-            int id = selectedKhoaHoc.Id; // Get the ID from the selected row
-
-
-            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete Khoa Hoc: {selectedKhoaHoc.TenKhoa}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
+            try
             {
-                try
+                // Tìm học kỳ dựa trên ID
+                var khoas = _service.GetAllKhoaHocs();
+
+                if (khoas == null)
+                {
+                    MessageBox.Show("Không tìm thấy khoa .", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Hiển thị hộp thoại xác nhận xóa
+                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa '?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
                 {
                     _service.DeletedKhoaHoc(id);
-                    // Refresh the DataGridView after successful deletion
-                    var result = _service.GetAllKhoaHocs();
-                    dgvKhoaHocList.DataSource = null;
-                    dgvKhoaHocList.DataSource = result;
-
-                    // Clear the textbox after deletion
+                    MessageBox.Show("Xóa học kỳ thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDataKhoaHoc(); // Load lại dữ liệu
+                    txtIdKhoa.Clear();
                     txttenkhoa.Clear();
-
-
-                    MessageBox.Show("Khoa Hoc deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-                catch (Exception ex) // Catch potential exceptions during deletion
-                {
-                    MessageBox.Show($"Error deleting Khoa Hoc: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa học kỳ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
+
+        }
+        //private void btnxoatenkhoa_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvKhoaHocList.SelectedRows.Count == 0)
+        //    {
+        //        MessageBox.Show("Please select a Khoa Hoc to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        return;
+        //    }
+
+        //    var selectedKhoaHoc = (QLDKhoa_CNTT.DAL.Entities.KhoaHoc)dgvKhoaHocList.SelectedRows[0].DataBoundItem;
+        //    int id = selectedKhoaHoc.Id; // Get the ID from the selected row
+
+
+        //    DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete Khoa Hoc: {selectedKhoaHoc.TenKhoa}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        try
+        //        {
+        //            _service.DeletedKhoaHoc(id);
+        //            // Refresh the DataGridView after successful deletion
+        //            var result = _service.GetAllKhoaHocs();
+        //            dgvKhoaHocList.DataSource = null;
+        //            dgvKhoaHocList.DataSource = result;
+
+        //            // Clear the textbox after deletion
+        //            txttenkhoa.Clear();
+
+
+        //            MessageBox.Show("Khoa Hoc deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        //        }
+        //        catch (Exception ex) // Catch potential exceptions during deletion
+        //        {
+        //            MessageBox.Show($"Error deleting Khoa Hoc: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+
+        //}
+
+        private void LoadDataKhoaHoc()
+        {
+            var result = _service.GetAllKhoaHocs();
+            dgvKhoaHocList.DataSource = null;
+            dgvKhoaHocList.DataSource = result;
+            dgvKhoaHocList.Columns["NganhHocs"].Visible = false;
         }
     }
 }

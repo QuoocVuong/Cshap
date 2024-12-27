@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace QLDKhoa_CNTT.BLL.Services
 {
-   
+
     public class HocKyService
     {
 
@@ -17,11 +17,11 @@ namespace QLDKhoa_CNTT.BLL.Services
         {
             return hocKyRepository.GetAll();
         }
-        public bool DeleteHocKy (int id)
+        public void DeleteHocKy(int id)
         {
-            return hocKyRepository.Delete(id);
+            hocKyRepository.Delete(id);
         }
-        public HocKy? GetAHocKy (int id)
+        public HocKy? GetAHocKy(int id)
         {
             return hocKyRepository.Get(id);
         }
@@ -30,9 +30,9 @@ namespace QLDKhoa_CNTT.BLL.Services
             hocKyRepository.Create(hocKy);
 
         }
-        public void UpdateHocKy(HocKy hocKy, int id)
+        public void UpdateAHocKy(HocKy hocKy)
         {
-            hocKyRepository.Update(hocKy);   
+            hocKyRepository.Update(hocKy);
         }
     }
 }

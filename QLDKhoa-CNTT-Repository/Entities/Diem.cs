@@ -9,15 +9,11 @@ public partial class Diem
 
     public int IdSinhVien { get; set; }
 
-    public int IdMonHoc { get; set; }
+    public int IdLanThi { get; set; }
 
     public double? Diem1 { get; set; }
 
-    public int IdlanThi { get; set; }
-
-    public virtual MonHoc IdMonHocNavigation { get; set; } = null!;
+    public virtual LanThi IdLanThiNavigation { get; set; } = null!;
 
     public virtual SinhVien IdSinhVienNavigation { get; set; } = null!;
-
-    public virtual LanThi IdlanThiNavigation { get; set; } = null!;
 }

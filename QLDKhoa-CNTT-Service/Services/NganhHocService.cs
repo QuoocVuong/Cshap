@@ -14,7 +14,7 @@ namespace QLDKhoa_CNTT.BLL
         public List<NganhHoc> GetAllNganhHocs()
         {
             return _repo.GetAll();
-        } 
+        }
         /// <summary>
         /// ham nay search cuon sach theo tieu chi: ten nganh hoc
         /// search theo kieu contain tuc la ten nganh hoc chua key vua go khong phai la so sanh hai chuoi bang nhau ma tim gan dung
@@ -24,12 +24,12 @@ namespace QLDKhoa_CNTT.BLL
         /// <returns></returns>
         public List<NganhHoc> SearchNganhHocs(string key)
         {
-            return _repo.GetAll().Where(n => n.TenNganhHoc.ToLower().Contains (key.ToLower())).ToList();
+            return _repo.GetAll().Where(n => n.TenNganhHoc.ToLower().Contains(key.ToLower())).ToList();
 
         }
         public bool DeletedNganhHoc(int id)
         {
-           return _repo.Delete(id);
+            return _repo.Delete(id);
         }
         public NganhHoc? GetANganhHoc(int id)
         {

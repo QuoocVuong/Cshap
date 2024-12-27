@@ -28,16 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            menuStrip1 = new MenuStrip();
+            lbhello = new Label();
             btnhethong = new ToolStripMenuItem();
             btnkhoahoc = new ToolStripMenuItem();
             btnnganhhoc = new ToolStripMenuItem();
             btnhocky = new ToolStripMenuItem();
-            hìnhThứcToolStripMenuItem = new ToolStripMenuItem();
+            LopHocToolStripMenuItem = new ToolStripMenuItem();
+            sinhVienToolStripMenuItem = new ToolStripMenuItem();
+            mônHọcToolStripMenuItem = new ToolStripMenuItem();
+            lầnThiToolStripMenuItem = new ToolStripMenuItem();
+            điểmToolStripMenuItem = new ToolStripMenuItem();
             đăngXuấtToolStripMenuItem = new ToolStripMenuItem();
-            lbhello = new Label();
+            menuStrip1 = new MenuStrip();
             menuStrip1.SuspendLayout();
             SuspendLayout();
+            // 
+            // lbhello
+            // 
+            lbhello.AutoSize = true;
+            lbhello.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            lbhello.Location = new Point(667, 83);
+            lbhello.Name = "lbhello";
+            lbhello.Size = new Size(74, 37);
+            lbhello.TabIndex = 1;
+            lbhello.Text = "hjgh";
+            // 
+            // btnhethong
+            // 
+            btnhethong.DropDownItems.AddRange(new ToolStripItem[] { btnkhoahoc, btnnganhhoc, btnhocky, LopHocToolStripMenuItem, sinhVienToolStripMenuItem, mônHọcToolStripMenuItem, lầnThiToolStripMenuItem, điểmToolStripMenuItem });
+            btnhethong.Name = "btnhethong";
+            btnhethong.Size = new Size(88, 24);
+            btnhethong.Text = "Hệ Thống";
+            // 
+            // btnkhoahoc
+            // 
+            btnkhoahoc.Name = "btnkhoahoc";
+            btnkhoahoc.Size = new Size(224, 26);
+            btnkhoahoc.Text = "Khóa ";
+            btnkhoahoc.Click += khoaHọcToolStripMenuItem_Click;
+            // 
+            // btnnganhhoc
+            // 
+            btnnganhhoc.Name = "btnnganhhoc";
+            btnnganhhoc.Size = new Size(224, 26);
+            btnnganhhoc.Text = "Ngành ";
+            btnnganhhoc.Click += ngànhHọcToolStripMenuItem_Click;
+            // 
+            // btnhocky
+            // 
+            btnhocky.Name = "btnhocky";
+            btnhocky.Size = new Size(224, 26);
+            btnhocky.Text = "Học Kỳ";
+            btnhocky.Click += họcKỳToolStripMenuItem_Click;
+            // 
+            // LopHocToolStripMenuItem
+            // 
+            LopHocToolStripMenuItem.Name = "LopHocToolStripMenuItem";
+            LopHocToolStripMenuItem.Size = new Size(224, 26);
+            LopHocToolStripMenuItem.Text = "Lớp ";
+            LopHocToolStripMenuItem.Click += LopHocToolStripMenuItem_Click;
+            // 
+            // sinhVienToolStripMenuItem
+            // 
+            sinhVienToolStripMenuItem.Name = "sinhVienToolStripMenuItem";
+            sinhVienToolStripMenuItem.Size = new Size(224, 26);
+            sinhVienToolStripMenuItem.Text = "Sinh Viên";
+            sinhVienToolStripMenuItem.Click += sinhVienToolStripMenuItem_Click;
+            // 
+            // mônHọcToolStripMenuItem
+            // 
+            mônHọcToolStripMenuItem.Name = "mônHọcToolStripMenuItem";
+            mônHọcToolStripMenuItem.Size = new Size(224, 26);
+            mônHọcToolStripMenuItem.Text = "Môn ";
+            mônHọcToolStripMenuItem.Click += mônHọcToolStripMenuItem_Click;
+            // 
+            // lầnThiToolStripMenuItem
+            // 
+            lầnThiToolStripMenuItem.Name = "lầnThiToolStripMenuItem";
+            lầnThiToolStripMenuItem.Size = new Size(224, 26);
+            lầnThiToolStripMenuItem.Text = "Lần Thi";
+            lầnThiToolStripMenuItem.Click += lầnThiToolStripMenuItem_Click;
+            // 
+            // điểmToolStripMenuItem
+            // 
+            điểmToolStripMenuItem.Name = "điểmToolStripMenuItem";
+            điểmToolStripMenuItem.Size = new Size(224, 26);
+            điểmToolStripMenuItem.Text = "Điểm";
+            điểmToolStripMenuItem.Click += điểmToolStripMenuItem_Click;
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            đăngXuấtToolStripMenuItem.Size = new Size(93, 24);
+            đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
+            đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
             // 
             // menuStrip1
             // 
@@ -45,71 +129,19 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { btnhethong, đăngXuấtToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(700, 24);
+            menuStrip1.Padding = new Padding(6, 3, 0, 3);
+            menuStrip1.Size = new Size(800, 30);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // btnhethong
-            // 
-            btnhethong.DropDownItems.AddRange(new ToolStripItem[] { btnkhoahoc, btnnganhhoc, btnhocky, hìnhThứcToolStripMenuItem });
-            btnhethong.Name = "btnhethong";
-            btnhethong.Size = new Size(72, 20);
-            btnhethong.Text = "Hệ Thống";
-            // 
-            // btnkhoahoc
-            // 
-            btnkhoahoc.Name = "btnkhoahoc";
-            btnkhoahoc.Size = new Size(135, 22);
-            btnkhoahoc.Text = "Khoa Học";
-            btnkhoahoc.Click += khoaHọcToolStripMenuItem_Click;
-            // 
-            // btnnganhhoc
-            // 
-            btnnganhhoc.Name = "btnnganhhoc";
-            btnnganhhoc.Size = new Size(135, 22);
-            btnnganhhoc.Text = "Ngành Học";
-            btnnganhhoc.Click += ngànhHọcToolStripMenuItem_Click;
-            // 
-            // btnhocky
-            // 
-            btnhocky.Name = "btnhocky";
-            btnhocky.Size = new Size(135, 22);
-            btnhocky.Text = "Học Kỳ";
-            btnhocky.Click += họcKỳToolStripMenuItem_Click;
-            // 
-            // hìnhThứcToolStripMenuItem
-            // 
-            hìnhThứcToolStripMenuItem.Name = "hìnhThứcToolStripMenuItem";
-            hìnhThứcToolStripMenuItem.Size = new Size(135, 22);
-            hìnhThứcToolStripMenuItem.Text = "Hình Thức";
-            hìnhThứcToolStripMenuItem.Click += hìnhThứcToolStripMenuItem_Click;
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            đăngXuấtToolStripMenuItem.Size = new Size(74, 20);
-            đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
-            đăngXuấtToolStripMenuItem.Click += đăngXuấtToolStripMenuItem_Click;
-            // 
-            // lbhello
-            // 
-            lbhello.AutoSize = true;
-            lbhello.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lbhello.Location = new Point(434, 24);
-            lbhello.Name = "lbhello";
-            lbhello.Size = new Size(0, 30);
-            lbhello.TabIndex = 1;
-            // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
             Controls.Add(lbhello);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
@@ -122,14 +154,17 @@
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
+        private Label lbhello;
         private ToolStripMenuItem btnhethong;
         private ToolStripMenuItem btnkhoahoc;
         private ToolStripMenuItem btnnganhhoc;
-        private ToolStripMenuItem đăngXuấtToolStripMenuItem;
         private ToolStripMenuItem btnhocky;
-        private ToolStripMenuItem hìnhThứcToolStripMenuItem;
-        private Label lbhello;
+        private ToolStripMenuItem LopHocToolStripMenuItem;
+        private ToolStripMenuItem sinhVienToolStripMenuItem;
+        private ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem mônHọcToolStripMenuItem;
+        private ToolStripMenuItem lầnThiToolStripMenuItem;
+        private ToolStripMenuItem điểmToolStripMenuItem;
     }
 }

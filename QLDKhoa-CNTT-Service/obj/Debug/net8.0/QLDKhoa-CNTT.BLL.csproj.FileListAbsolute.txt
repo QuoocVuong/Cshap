@@ -8,6 +8,7 @@ C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT.BLL.Ge
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT.BLL.AssemblyInfoInputs.cache
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT.BLL.AssemblyInfo.cs
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT.BLL.csproj.CoreCompileInputs.cache
+C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT.BLL.sourcelink.json
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-.D4C3E8AD.Up2Date
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\QLDKhoa-CNTT.BLL.dll
 C:\CSharp\QLDKHOA_CNTT\QLDKhoa-CNTT-Service\obj\Debug\net8.0\refint\QLDKhoa-CNTT.BLL.dll

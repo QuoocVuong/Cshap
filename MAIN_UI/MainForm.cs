@@ -49,21 +49,45 @@ namespace MAIN_UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //loi chao nguoi dung
-            lbhello.Text = "Xin chào, " + taiKhoan.TenDangNhap + "!";
-            //check role
-            if (taiKhoan.Quyen == 2)
-            {
-                btnhocky.Enabled = false;
-                btnkhoahoc.Enabled = false;
-                btnnganhhoc.Enabled = false;
-            }
+            ////loi chao nguoi dung
+            //lbhello.Text = "Xin chào, " + taiKhoan.TenDangNhap + "!";
+            ////check role
+            //if (taiKhoan.Quyen == 2)
+            //{
+            //    btnhocky.Enabled = false;
+            //    btnkhoahoc.Enabled = false;
+            //    btnnganhhoc.Enabled = false;
+            //}
         }
 
-        private void hìnhThứcToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LopHocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HinhThucForm hinhThucForm = new HinhThucForm();
-            hinhThucForm.ShowDialog();
+            LopHocForm lopHocForm = new LopHocForm();
+            lopHocForm.ShowDialog();
+        }
+
+        private void sinhVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SinhVienForm sinhVienForm = new SinhVienForm();
+            sinhVienForm.ShowDialog();
+        }
+
+        private void mônHọcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MonHocForm monHocForm = new MonHocForm();
+            monHocForm.ShowDialog();
+        }
+
+        private void lầnThiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LanThiForm lanThiForm = new LanThiForm();
+            lanThiForm.ShowDialog();
+        }
+
+        private void điểmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DiemForm diemForm = new DiemForm();
+            diemForm.ShowDialog();
         }
     }
 }

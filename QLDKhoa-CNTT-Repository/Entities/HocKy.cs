@@ -9,9 +9,9 @@ public partial class HocKy
 
     public string TenHocKy { get; set; } = null!;
 
-    public int IdNganhHoc { get; set; }
+    public int IdNamHoc { get; set; }
 
-    public virtual ICollection<HinhThuc> HinhThucs { get; set; } = new List<HinhThuc>();
+    public virtual NamHoc IdNamHocNavigation { get; set; } = null!;
 
-    public virtual NganhHoc IdNganhHocNavigation { get; set; } = null!;
+    public virtual ICollection<MonHoc> MonHocs { get; set; } = new List<MonHoc>();
 }

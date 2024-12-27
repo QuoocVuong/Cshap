@@ -14,4 +14,5 @@ public partial class LopHoc
     public virtual NganhHoc IdNganhNavigation { get; set; } = null!;
 
     public virtual ICollection<SinhVien> SinhViens { get; set; } = new List<SinhVien>();
+
 }

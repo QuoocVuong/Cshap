@@ -13,11 +13,11 @@ public partial class MonHoc
 
     public int? SoGio { get; set; }
 
-    public int IdHinhThuc { get; set; }
+    public int IdHocKy { get; set; }
 
-    public virtual ICollection<Diem> Diems { get; set; } = new List<Diem>();
-
-    public virtual HinhThuc IdHinhThucNavigation { get; set; } = null!;
+    public virtual HocKy IdHocKyNavigation { get; set; } = null!;
 
     public virtual ICollection<LanThi> LanThis { get; set; } = new List<LanThi>();
+
+    public virtual ICollection<GiangVien> IdGiangViens { get; set; } = new List<GiangVien>();
 }

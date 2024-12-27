@@ -11,7 +11,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
     {
         private QuanLyDiemKhoaCnttContext _context;
 
-        public HocKy Get (int id )
+        public HocKy Get(int id)
         {
             _context = new QuanLyDiemKhoaCnttContext();
             return _context.HocKies.Find(id);
@@ -37,27 +37,58 @@ namespace QLDKhoa_CNTT.DAL.Repositories
             _context.HocKies.Update(hocKi);
             _context.SaveChanges();
         }
-        public bool Delete (int id)
+        //public bool Delete(int id)
+        //{
+        //    _context = new QuanLyDiemKhoaCnttContext();
+        //    var hocKi = _context.HocKies.FirstOrDefault(h => h.Id == id);
+        //    if (hocKi != null)
+        //    {
+        //        try
+        //        {
+        //            _context.HocKies.Remove(hocKi);
+        //            _context.SaveChanges();
+        //            return true; // Trả về true nếu thành công
+        //        }
+        //        catch (Exception)
+        //        {
+        //            return false; // Trả về false nếu có lỗi xảy ra
+        //        }
+
+        //    }
+
+        //    return false; // Trả về false nếu không tìm thấy học kỳ
+        //}
+        //public void Delete(int id)// dung linq
+        //{
+        //    _context = new QuanLyDiemKhoaCnttContext();
+        //    var hocKy = _context.HocKies.FirstOrDefault(k => k.Id == id);
+        //    if (hocKy != null)
+        //    {
+
+        //        _context.HocKies.Remove(hocKy);
+        //        _context.SaveChanges();
+        //    }
+        //}
+        public bool Delete(int id)
         {
             _context = new QuanLyDiemKhoaCnttContext();
-            var hocKi = _context.HocKies.FirstOrDefault(h => h.Id == id);
-            if (hocKi != null)
+            try
             {
-                try
+                var hocKy = _context.HocKies.FirstOrDefault(k => k.Id == id);
+                if (hocKy != null)
                 {
-                    _context.HocKies.Remove(hocKi);
+                    _context.HocKies.Remove(hocKy);
                     _context.SaveChanges();
-                    return true; // Trả về true nếu thành công
+                    return true;
                 }
-                catch (Exception)
-                {
-                    return false; // Trả về false nếu có lỗi xảy ra
-                }
-
+                return false; // Học kỳ không tồn tại
             }
-
-            return false; // Trả về false nếu không tìm thấy học kỳ
+            catch (Exception ex)
+            {
+                
+                return false; // Xóa thất bại
+            }
         }
-        
+
     }
 }

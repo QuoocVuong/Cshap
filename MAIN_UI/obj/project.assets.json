@@ -47,6 +47,18 @@
           }
         }
       },
+      "HIC.System.Windows.Forms.DataVisualization/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Data.SqlClient": "3.0.0"
+        },
+        "compile": {
+          "lib/net5.0-windows7.0/System.Windows.Forms.DataVisualization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/System.Windows.Forms.DataVisualization.dll": {}
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "type": "package",
         "compile": {
@@ -1201,6 +1213,18 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "HIC.System.Windows.Forms.DataVisualization/1.0.1": {
+      "sha512": "2iErCJov37VIGLATCcI8tAaFemn8KJW/b4686foj+CslKTSGa2NcQgvVCYF+kR4+6d9cg09X1xrcoIgnVlznsA==",
+      "type": "package",
+      "path": "hic.system.windows.forms.datavisualization/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "hic.system.windows.forms.datavisualization.1.0.1.nupkg.sha512",
+        "hic.system.windows.forms.datavisualization.nuspec",
+        "lib/net5.0-windows7.0/System.Windows.Forms.DataVisualization.dll"
       ]
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
@@ -3135,6 +3159,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "HIC.System.Windows.Forms.DataVisualization >= 1.0.1",
       "QLDKhoa-CNTT.BLL >= 1.0.0"
     ]
   },
@@ -3191,6 +3216,12 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "HIC.System.Windows.Forms.DataVisualization": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
