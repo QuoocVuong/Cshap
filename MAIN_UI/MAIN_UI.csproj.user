@@ -28,6 +28,12 @@
     <Compile Update="NganhHoc.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SinhVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -43,5 +49,19 @@
     <Compile Update="ThemSuaXoaHocKy.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="DataSet12345.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="DataSetChinh.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="DataSetDiem.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="DataSetMain.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
 </Project>

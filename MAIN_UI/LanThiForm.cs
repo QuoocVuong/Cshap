@@ -82,6 +82,7 @@ namespace MAIN_UI
             dgvLanThi.Columns["Id"].HeaderText = "ID";
             dgvLanThi.Columns["LanThi1"].HeaderText = "Lần Thi";
             dgvLanThi.Columns["NgayThi"].HeaderText = "Ngày Thi";
+            dgvLanThi.Columns["HinhThucThi"].HeaderText = "Hình Thức Thi";
             dgvLanThi.Columns["IdMonHoc"].HeaderText = "Môn Học";
             dgvLanThi.Columns["Diems"].Visible = false;
             dgvLanThi.Columns["IdMonHocNavigation"].Visible = false;
@@ -129,6 +130,7 @@ namespace MAIN_UI
             txtOutputLanThi.Enabled = false;
             dtpOutputNgayThi.Enabled = false;
             txtOutputMonHoc.Enabled = false;
+            txtOutputHinhThucThi.Enabled = false;
         }
         private void HideTextBoxInput()
         {
@@ -142,6 +144,7 @@ namespace MAIN_UI
                 txtOutputId.Text = lanThi.Id.ToString();
                 txtOutputLanThi.Text = lanThi.LanThi1.ToString();
                 dtpOutputNgayThi.Value = lanThi.NgayThi.ToDateTime(TimeOnly.MinValue);
+                txtOutputHinhThucThi.Text = lanThi.HinhThucThi;
 
                 // Lấy đối tượng mon hoc
                 monHocService = new();
@@ -165,7 +168,7 @@ namespace MAIN_UI
             txtOutputId.Clear();
             txtOutputLanThi.Clear();
             txtOutputMonHoc.Clear();
-
+            txtOutputHinhThucThi.Clear();
         }
         private bool ValidateInput()
         {
@@ -176,6 +179,12 @@ namespace MAIN_UI
                 txtInputLanThi.Focus();
                 return false; // Thoát nếu không hợp lệ
             }
+            if (string.IsNullOrWhiteSpace(txtInputHinhThucThi.Text))
+            {
+                MessageBox.Show("Vui lòng nhập hinh thuc thi thi.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtInputHinhThucThi.Focus();
+                return false; // Thoát nếu không hợp lệ
+            }
 
 
             if (cbbInputMonHoc.SelectedValue == null)
@@ -184,6 +193,7 @@ namespace MAIN_UI
                 cbbInputMonHoc.Focus();
                 return false; // Thoát nếu không hợp lệ
             }
+
             int idMonHoc;
 
             if (!int.TryParse(cbbInputMonHoc.SelectedValue.ToString(), out idMonHoc))
@@ -206,6 +216,7 @@ namespace MAIN_UI
         {
             txtInputId.Clear();
             txtInputLanThi.Clear();
+            txtInputHinhThucThi.Clear();
             cbbInputMonHoc.SelectedIndex = -1;
         }
         private void CbbFilterByMonHoc_SelectedIndexChanged(object? sender, EventArgs e)
@@ -229,6 +240,7 @@ namespace MAIN_UI
                         LanThi1 = int.Parse(txtInputLanThi.Text.ToString()),
                         NgayThi = DateOnly.FromDateTime(dtpInputNgayThi.Value),
                         IdMonHoc = idMonHoc,
+                        HinhThucThi = txtInputHinhThucThi.Text.Trim()
                     };
                     lanThiService.CreateALanThi(lanThi);
 
@@ -277,7 +289,7 @@ namespace MAIN_UI
                 txtInputLanThi.Text = lanThi.LanThi1.ToString();
                 dtpInputNgayThi.Value = lanThi.NgayThi.ToDateTime(TimeOnly.MinValue);
                 cbbInputMonHoc.SelectedValue = lanThi.IdMonHoc;
-
+                txtInputHinhThucThi.Text = lanThi.HinhThucThi;
 
                 // Đặt trạng thái sửa và lưu ID
                 isEditing = true;
@@ -308,6 +320,7 @@ namespace MAIN_UI
                     lanThi.LanThi1 = int.Parse(txtInputLanThi.Text);
                     lanThi.NgayThi = DateOnly.FromDateTime(dtpInputNgayThi.Value);
                     lanThi.IdMonHoc = int.Parse(cbbInputMonHoc.SelectedValue.ToString());
+                    lanThi.HinhThucThi = txtInputHinhThucThi.Text.Trim();
 
                     int? selectedValuedMonHoc = int.Parse(cbbInputMonHoc.SelectedValue.ToString());
 

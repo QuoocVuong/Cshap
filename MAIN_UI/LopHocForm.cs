@@ -309,7 +309,7 @@ namespace MAIN_UI
             }
             themSuaLopHoc.ShowDialog();
             //sau khi sua xong thi dong va reload lai gripdata
-            
+
         }
     }
 }

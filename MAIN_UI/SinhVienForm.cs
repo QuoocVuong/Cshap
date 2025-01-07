@@ -283,7 +283,7 @@ namespace MAIN_UI
             ThemSuaSinhVien themSuaSinhVien = new();
             themSuaSinhVien.id = int.Parse(txtId.Text);
             themSuaSinhVien.DataSaved += ThemSuaSinhVien_DataSaved;
-           
+
             if (_selectedLops.HasValue && _selectedLops != -1)
             {
                 themSuaSinhVien.SelecedValueLops = _selectedLops;

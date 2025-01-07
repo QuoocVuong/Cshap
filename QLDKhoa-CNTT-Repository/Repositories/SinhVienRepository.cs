@@ -9,7 +9,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class SinhVienRepository
     {
-        private QuanLyDiemKhoaCnttContext _context;
+        private QuanLyDiemKhoaCNTTContext _context;
         public List<SinhVien> GetAll()
         {
             _context = new();

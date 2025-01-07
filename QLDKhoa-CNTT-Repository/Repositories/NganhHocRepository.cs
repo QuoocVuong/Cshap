@@ -1,4 +1,6 @@
-﻿using QLDKhoa_CNTT.DAL.Entities;
+﻿
+
+using QLDKhoa_CNTT.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,20 +11,20 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class NganhHocRepository
     {
-        private QuanLyDiemKhoaCnttContext _context;
+        private QuanLyDiemKhoaCNTTContext _context;
         public NganhHoc Get(int id)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             return _context.NganhHocs.Find(id);
         }
         public List<NganhHoc> GetAll()
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             return _context.NganhHocs.ToList();
         }
         public void Create(NganhHoc nganhHoc)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             _context.NganhHocs.Add(nganhHoc);
             _context.SaveChanges();
         }
@@ -76,7 +78,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
         //}
         public bool Delete(int id)
         {
-            _context = new QuanLyDiemKhoaCnttContext(); // Khởi tạo _context
+            _context = new QuanLyDiemKhoaCNTTContext(); // Khởi tạo _context
             var nganhHoc = _context.NganhHocs.FirstOrDefault(nh => nh.Id == id); // Tìm NganhHoc theo ID
 
             if (nganhHoc != null)
@@ -91,7 +93,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 
         public void Update(NganhHoc nganhHoc)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             _context.NganhHocs.Update(nganhHoc);
             _context.SaveChanges();
         }

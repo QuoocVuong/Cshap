@@ -53,6 +53,10 @@
             label9 = new Label();
             label8 = new Label();
             label7 = new Label();
+            txtInputHinhThucThi = new TextBox();
+            label6 = new Label();
+            label12 = new Label();
+            txtOutputHinhThucThi = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvLanThi).BeginInit();
             SuspendLayout();
             // 
@@ -68,7 +72,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(14, 57);
+            label2.Location = new Point(30, 79);
             label2.Name = "label2";
             label2.Size = new Size(24, 20);
             label2.TabIndex = 1;
@@ -77,7 +81,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(20, 99);
+            label3.Location = new Point(16, 111);
             label3.Name = "label3";
             label3.Size = new Size(56, 20);
             label3.TabIndex = 2;
@@ -86,7 +90,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(20, 139);
+            label4.Location = new Point(16, 155);
             label4.Name = "label4";
             label4.Size = new Size(68, 20);
             label4.TabIndex = 3;
@@ -95,7 +99,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(23, 183);
+            label5.Location = new Point(14, 245);
             label5.Name = "label5";
             label5.Size = new Size(70, 20);
             label5.TabIndex = 4;
@@ -132,7 +136,7 @@
             // dgvLanThi
             // 
             dgvLanThi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLanThi.Location = new Point(12, 261);
+            dgvLanThi.Location = new Point(14, 324);
             dgvLanThi.Name = "dgvLanThi";
             dgvLanThi.RowHeadersWidth = 51;
             dgvLanThi.Size = new Size(902, 188);
@@ -140,7 +144,7 @@
             // 
             // btnSua
             // 
-            btnSua.Location = new Point(371, 225);
+            btnSua.Location = new Point(374, 279);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(94, 29);
             btnSua.TabIndex = 16;
@@ -150,7 +154,7 @@
             // 
             // btnXoa
             // 
-            btnXoa.Location = new Point(481, 225);
+            btnXoa.Location = new Point(484, 279);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(94, 29);
             btnXoa.TabIndex = 17;
@@ -160,7 +164,7 @@
             // 
             // btnThoat
             // 
-            btnThoat.Location = new Point(581, 225);
+            btnThoat.Location = new Point(584, 279);
             btnThoat.Name = "btnThoat";
             btnThoat.Size = new Size(94, 29);
             btnThoat.TabIndex = 18;
@@ -171,7 +175,7 @@
             // cbbInputMonHoc
             // 
             cbbInputMonHoc.FormattingEnabled = true;
-            cbbInputMonHoc.Location = new Point(102, 183);
+            cbbInputMonHoc.Location = new Point(99, 245);
             cbbInputMonHoc.Name = "cbbInputMonHoc";
             cbbInputMonHoc.Size = new Size(151, 28);
             cbbInputMonHoc.TabIndex = 19;
@@ -195,14 +199,14 @@
             // 
             // txtOutputMonHoc
             // 
-            txtOutputMonHoc.Location = new Point(782, 201);
+            txtOutputMonHoc.Location = new Point(775, 253);
             txtOutputMonHoc.Name = "txtOutputMonHoc";
             txtOutputMonHoc.Size = new Size(125, 27);
             txtOutputMonHoc.TabIndex = 22;
             // 
             // btnThem
             // 
-            btnThem.Location = new Point(253, 226);
+            btnThem.Location = new Point(249, 279);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(94, 29);
             btnThem.TabIndex = 23;
@@ -237,7 +241,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(693, 204);
+            label11.Location = new Point(693, 253);
             label11.Name = "label11";
             label11.Size = new Size(70, 20);
             label11.TabIndex = 27;
@@ -270,11 +274,48 @@
             label7.TabIndex = 30;
             label7.Text = "ID";
             // 
+            // txtInputHinhThucThi
+            // 
+            txtInputHinhThucThi.Location = new Point(130, 194);
+            txtInputHinhThucThi.Name = "txtInputHinhThucThi";
+            txtInputHinhThucThi.Size = new Size(142, 27);
+            txtInputHinhThucThi.TabIndex = 31;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(12, 201);
+            label6.Name = "label6";
+            label6.Size = new Size(100, 20);
+            label6.TabIndex = 32;
+            label6.Text = "Hình Thức Thi";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(557, 217);
+            label12.Name = "label12";
+            label12.Size = new Size(100, 20);
+            label12.TabIndex = 33;
+            label12.Text = "Hình Thức Thi";
+            // 
+            // txtOutputHinhThucThi
+            // 
+            txtOutputHinhThucThi.Location = new Point(725, 214);
+            txtOutputHinhThucThi.Name = "txtOutputHinhThucThi";
+            txtOutputHinhThucThi.Size = new Size(175, 27);
+            txtOutputHinhThucThi.TabIndex = 34;
+            // 
             // LanThiForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(926, 450);
+            ClientSize = new Size(926, 524);
+            Controls.Add(txtOutputHinhThucThi);
+            Controls.Add(label12);
+            Controls.Add(label5);
+            Controls.Add(label6);
+            Controls.Add(txtInputHinhThucThi);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(label9);
@@ -295,7 +336,6 @@
             Controls.Add(txtOutputId);
             Controls.Add(txtInputLanThi);
             Controls.Add(txtInputId);
-            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -335,5 +375,9 @@
         private Label label9;
         private Label label8;
         private Label label7;
+        private TextBox txtInputHinhThucThi;
+        private Label label6;
+        private Label label12;
+        private TextBox txtOutputHinhThucThi;
     }
 }

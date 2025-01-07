@@ -47,7 +47,7 @@
             // 
             lbhello.AutoSize = true;
             lbhello.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 163);
-            lbhello.Location = new Point(667, 83);
+            lbhello.Location = new Point(362, 86);
             lbhello.Name = "lbhello";
             lbhello.Size = new Size(74, 37);
             lbhello.TabIndex = 1;
@@ -63,56 +63,56 @@
             // btnkhoahoc
             // 
             btnkhoahoc.Name = "btnkhoahoc";
-            btnkhoahoc.Size = new Size(224, 26);
+            btnkhoahoc.Size = new Size(153, 26);
             btnkhoahoc.Text = "Khóa ";
             btnkhoahoc.Click += khoaHọcToolStripMenuItem_Click;
             // 
             // btnnganhhoc
             // 
             btnnganhhoc.Name = "btnnganhhoc";
-            btnnganhhoc.Size = new Size(224, 26);
+            btnnganhhoc.Size = new Size(153, 26);
             btnnganhhoc.Text = "Ngành ";
             btnnganhhoc.Click += ngànhHọcToolStripMenuItem_Click;
             // 
             // btnhocky
             // 
             btnhocky.Name = "btnhocky";
-            btnhocky.Size = new Size(224, 26);
+            btnhocky.Size = new Size(153, 26);
             btnhocky.Text = "Học Kỳ";
             btnhocky.Click += họcKỳToolStripMenuItem_Click;
             // 
             // LopHocToolStripMenuItem
             // 
             LopHocToolStripMenuItem.Name = "LopHocToolStripMenuItem";
-            LopHocToolStripMenuItem.Size = new Size(224, 26);
+            LopHocToolStripMenuItem.Size = new Size(153, 26);
             LopHocToolStripMenuItem.Text = "Lớp ";
             LopHocToolStripMenuItem.Click += LopHocToolStripMenuItem_Click;
             // 
             // sinhVienToolStripMenuItem
             // 
             sinhVienToolStripMenuItem.Name = "sinhVienToolStripMenuItem";
-            sinhVienToolStripMenuItem.Size = new Size(224, 26);
+            sinhVienToolStripMenuItem.Size = new Size(153, 26);
             sinhVienToolStripMenuItem.Text = "Sinh Viên";
             sinhVienToolStripMenuItem.Click += sinhVienToolStripMenuItem_Click;
             // 
             // mônHọcToolStripMenuItem
             // 
             mônHọcToolStripMenuItem.Name = "mônHọcToolStripMenuItem";
-            mônHọcToolStripMenuItem.Size = new Size(224, 26);
+            mônHọcToolStripMenuItem.Size = new Size(153, 26);
             mônHọcToolStripMenuItem.Text = "Môn ";
             mônHọcToolStripMenuItem.Click += mônHọcToolStripMenuItem_Click;
             // 
             // lầnThiToolStripMenuItem
             // 
             lầnThiToolStripMenuItem.Name = "lầnThiToolStripMenuItem";
-            lầnThiToolStripMenuItem.Size = new Size(224, 26);
+            lầnThiToolStripMenuItem.Size = new Size(153, 26);
             lầnThiToolStripMenuItem.Text = "Lần Thi";
             lầnThiToolStripMenuItem.Click += lầnThiToolStripMenuItem_Click;
             // 
             // điểmToolStripMenuItem
             // 
             điểmToolStripMenuItem.Name = "điểmToolStripMenuItem";
-            điểmToolStripMenuItem.Size = new Size(224, 26);
+            điểmToolStripMenuItem.Size = new Size(153, 26);
             điểmToolStripMenuItem.Text = "Điểm";
             điểmToolStripMenuItem.Click += điểmToolStripMenuItem_Click;
             // 

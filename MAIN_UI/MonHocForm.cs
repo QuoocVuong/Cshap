@@ -486,7 +486,7 @@ namespace MAIN_UI
                         cbbFilterByHocKy.SelectedValue = selectedValuedHocKy;
                     }
 
-                   
+
                 }
                 catch (Exception ex)
                 {

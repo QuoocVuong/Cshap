@@ -81,7 +81,7 @@ namespace MAIN_UI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if(ValidateInput() == false) return;
+            if (ValidateInput() == false) return;
             SaveLopHoc();
         }
         public bool ValidateInput()
@@ -147,7 +147,7 @@ namespace MAIN_UI
                         IdLop = idLop,
 
 
-                      
+
                     };
 
 

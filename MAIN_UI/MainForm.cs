@@ -1,4 +1,5 @@
-﻿using QLDKhoa_CNTT.DAL.Entities;
+﻿using QLDKhoa_CNTT.BLL.Services;
+using QLDKhoa_CNTT.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,10 +14,13 @@ namespace MAIN_UI
 {
     public partial class MainForm : Form
     {
-        public TaiKhoan taiKhoan { get; set; }
-        public MainForm()
+        public User taiKhoan { get; set; }
+        private readonly UserService _userService; // Thêm UserService
+
+        public MainForm(UserService userService) // Sửa đổi constructor để nhận UserService
         {
             InitializeComponent();
+            _userService = userService; // Lưu trữ UserService instance
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,10 +53,10 @@ namespace MAIN_UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ////loi chao nguoi dung
-            //lbhello.Text = "Xin chào, " + taiKhoan.TenDangNhap + "!";
-            ////check role
-            //if (taiKhoan.Quyen == 2)
+            //loi chao nguoi dung
+            lbhello.Text = "Xin chào, " + taiKhoan.Username + "!";
+            //check role
+            //if (t == 2)
             //{
             //    btnhocky.Enabled = false;
             //    btnkhoahoc.Enabled = false;
@@ -86,7 +90,7 @@ namespace MAIN_UI
 
         private void điểmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DiemForm diemForm = new DiemForm();
+            DiemForm diemForm = new DiemForm(_userService.GetCurrentUserId(), _userService);
             diemForm.ShowDialog();
         }
     }

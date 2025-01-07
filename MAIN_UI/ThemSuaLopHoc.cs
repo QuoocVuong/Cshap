@@ -40,7 +40,7 @@ namespace MAIN_UI
             //phan sua du lieu
             if (this.id != null)
             {
-               
+
                 // edit mode, hien thi data
                 var lopHoc = lopHocService.GetALopHoc((int)id);
                 txtTenLop.Text = lopHoc.TenLop;
@@ -94,7 +94,7 @@ namespace MAIN_UI
 
             try
             {
-                
+
                 if (this.id == null) // Thêm mới
                 {
                     LopHoc lopHoc = new()
@@ -110,7 +110,7 @@ namespace MAIN_UI
                 else // Cập nhật
                 {
 
-                    LopHoc lopHoc = lopHocService.GetALopHoc((int)id); 
+                    LopHoc lopHoc = lopHocService.GetALopHoc((int)id);
                     if (lopHoc != null)
                     {
                         lopHoc.TenLop = txtTenLop.Text.Trim();

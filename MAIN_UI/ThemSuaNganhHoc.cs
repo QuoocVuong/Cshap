@@ -40,7 +40,7 @@ namespace MAIN_UI
                 // edit mode, hien thi data
                 var nganhHoc = _nganhhocService.GetANganhHoc((int)id);
                 txttennganh.Text = nganhHoc.TenNganhHoc;
-                
+
                 txtid.Text = nganhHoc.Id.ToString();
                 txtid.Enabled = false;
                 cbbkhoa.SelectedValue = nganhHoc.IdKhoa;
@@ -57,7 +57,7 @@ namespace MAIN_UI
         {
             this.Close();
 
-            
+
         }
 
         private void btnthem_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace MAIN_UI
                 QLDKhoa_CNTT.DAL.Entities.NganhHoc nganhHoc = new()
 
                 {
-                    
+
                     TenNganhHoc = txttennganh.Text.Trim(),
                     IdKhoa = int.Parse(cbbkhoa.SelectedValue.ToString()),
                 };

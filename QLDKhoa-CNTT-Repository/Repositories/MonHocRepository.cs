@@ -9,7 +9,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class MonHocRepository
     {
-        private QuanLyDiemKhoaCnttContext _context;
+        private QuanLyDiemKhoaCNTTContext _context;
         public List<MonHoc> GetAll()
         {
             _context = new();
@@ -45,7 +45,8 @@ namespace QLDKhoa_CNTT.DAL.Repositories
                     return true;
                 }
                 return false;
-            }catch (Exception )
+            }
+            catch (Exception)
             {
                 return false;
             }

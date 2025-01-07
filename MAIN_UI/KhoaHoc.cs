@@ -73,7 +73,7 @@ namespace MAIN_UI
                 txtIdKhoa.Text = khoa.Id.ToString();
                 txttenkhoa.Text = khoa.TenKhoa;
             }
-            
+
         }
         private void btnxoatenkhoa_Click(object sender, EventArgs e)
         {
@@ -118,7 +118,7 @@ namespace MAIN_UI
                     LoadDataKhoaHoc(); // Load lại dữ liệu
                     txtIdKhoa.Clear();
                     txttenkhoa.Clear();
-                    
+
                 }
             }
             catch (Exception ex)

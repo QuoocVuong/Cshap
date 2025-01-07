@@ -7,7 +7,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class LanThiRepository
     {
-        private QuanLyDiemKhoaCnttContext _context;
+        private QuanLyDiemKhoaCNTTContext _context;
 
         public List<LanThi> GetAll()
         {

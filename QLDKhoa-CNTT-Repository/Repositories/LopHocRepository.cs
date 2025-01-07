@@ -9,26 +9,26 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class LopHocRepository
     {
-        private QuanLyDiemKhoaCnttContext _context;
+        private QuanLyDiemKhoaCNTTContext _context;
         public List<LopHoc> GetAll()
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             return _context.LopHocs.ToList();
         }
         public LopHoc Get(int id)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             return _context.LopHocs.Find(id);
         }
         public void Create(LopHoc lopHoc)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             _context.LopHocs.Add(lopHoc);
             _context.SaveChanges();
         }
         public void Update(LopHoc lopHoc)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             _context.LopHocs.Update(lopHoc);
             _context.SaveChanges();
         }
@@ -51,10 +51,10 @@ namespace QLDKhoa_CNTT.DAL.Repositories
         //}
         public bool Delete(int id)
         {
-           
+
             try
             {
-                _context = new QuanLyDiemKhoaCnttContext();
+                _context = new QuanLyDiemKhoaCNTTContext();
                 var lopHoc = _context.LopHocs.FirstOrDefault(lh => lh.Id == id);
                 if (lopHoc != null)
                 {
@@ -64,7 +64,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
                 }
                 return false; // Học kỳ không tồn tại
             }
-            catch (Exception )
+            catch (Exception)
             {
 
                 return false; // Xóa thất bại

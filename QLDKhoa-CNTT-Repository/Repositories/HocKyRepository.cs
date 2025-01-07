@@ -8,24 +8,26 @@ using System.Threading.Tasks;
 namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class HocKyRepository
+        
     {
-        private QuanLyDiemKhoaCnttContext _context;
+        private QuanLyDiemKhoaCNTTContext _context;
+        
 
         public HocKy Get(int id)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             return _context.HocKies.Find(id);
         }
 
         public List<HocKy> GetAll()
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             return _context.HocKies.ToList();
 
         }
         public void Create(HocKy hocKy)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             _context.HocKies.Add(hocKy);
             _context.SaveChanges();
 
@@ -33,7 +35,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 
         public void Update(HocKy hocKi)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
+            _context = new QuanLyDiemKhoaCNTTContext();
             _context.HocKies.Update(hocKi);
             _context.SaveChanges();
         }
@@ -71,8 +73,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
         //}
         public bool Delete(int id)
         {
-            _context = new QuanLyDiemKhoaCnttContext();
-            try
+            _context = new QuanLyDiemKhoaCNTTContext();
             {
                 var hocKy = _context.HocKies.FirstOrDefault(k => k.Id == id);
                 if (hocKy != null)
@@ -83,11 +84,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
                 }
                 return false; // Học kỳ không tồn tại
             }
-            catch (Exception ex)
-            {
-                
-                return false; // Xóa thất bại
-            }
+            
         }
 
     }

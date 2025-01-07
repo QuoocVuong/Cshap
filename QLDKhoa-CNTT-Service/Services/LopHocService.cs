@@ -36,7 +36,7 @@ namespace QLDKhoa_CNTT.BLL.Services
         }
         public void DeleteALopHoc(int id)
         {
-           _repository.Delete(id);
+            _repository.Delete(id);
         }
     }
 }
