@@ -10,24 +10,24 @@ namespace QLDKhoa_CNTT.DAL.Repositories
     public class HocKyRepository
         
     {
-        private QuanLyDiemKhoaCNTTContext _context;
+        private QuanLyDiemKhoaCnttContext _context;
         
 
         public HocKy Get(int id)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             return _context.HocKies.Find(id);
         }
 
         public List<HocKy> GetAll()
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             return _context.HocKies.ToList();
 
         }
         public void Create(HocKy hocKy)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             _context.HocKies.Add(hocKy);
             _context.SaveChanges();
 
@@ -35,7 +35,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 
         public void Update(HocKy hocKi)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             _context.HocKies.Update(hocKi);
             _context.SaveChanges();
         }
@@ -73,7 +73,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
         //}
         public bool Delete(int id)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             {
                 var hocKy = _context.HocKies.FirstOrDefault(k => k.Id == id);
                 if (hocKy != null)

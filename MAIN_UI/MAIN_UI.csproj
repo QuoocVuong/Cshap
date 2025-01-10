@@ -8,6 +8,16 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <None Remove="BangDiem.rdlc" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="BangDiem.rdlc">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
 
 	<!--<ItemGroup Condition="'$(TargetFramework)' == 'net472'">
 		<Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
@@ -34,25 +44,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Update="DataSet12345.Designer.cs">
+		<Compile Update="DataSet1.Designer.cs">
 		  <DesignTime>True</DesignTime>
 		  <AutoGen>True</AutoGen>
-		  <DependentUpon>DataSet12345.xsd</DependentUpon>
-		</Compile>
-		<Compile Update="DataSetChinh.Designer.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>DataSetChinh.xsd</DependentUpon>
-		</Compile>
-		<Compile Update="DataSetDiem.Designer.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>DataSetDiem.xsd</DependentUpon>
+		  <DependentUpon>DataSet1.xsd</DependentUpon>
 		</Compile>
 		<Compile Update="DataSetMain.Designer.cs">
 		  <DesignTime>True</DesignTime>
 		  <AutoGen>True</AutoGen>
 		  <DependentUpon>DataSetMain.xsd</DependentUpon>
+		</Compile>
+		<Compile Update="MainDataSet.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>MainDataSet.xsd</DependentUpon>
 		</Compile>
 		<Compile Update="Properties\Resources.Designer.cs">
 			<DesignTime>True</DesignTime>
@@ -75,21 +80,17 @@
 		<None Update="BaoCaoDiem.rdlc">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="DataSet12345.xsd">
+		<None Update="DataSet1.xsd">
 		  <Generator>MSDataSetGenerator</Generator>
-		  <LastGenOutput>DataSet12345.Designer.cs</LastGenOutput>
-		</None>
-		<None Update="DataSetChinh.xsd">
-		  <Generator>MSDataSetGenerator</Generator>
-		  <LastGenOutput>DataSetChinh.Designer.cs</LastGenOutput>
-		</None>
-		<None Update="DataSetDiem.xsd">
-		  <Generator>MSDataSetGenerator</Generator>
-		  <LastGenOutput>DataSetDiem.Designer.cs</LastGenOutput>
+		  <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
 		</None>
 		<None Update="DataSetMain.xsd">
 		  <Generator>MSDataSetGenerator</Generator>
 		  <LastGenOutput>DataSetMain.Designer.cs</LastGenOutput>
+		</None>
+		<None Update="MainDataSet.xsd">
+		  <Generator>MSDataSetGenerator</Generator>
+		  <LastGenOutput>MainDataSet.Designer.cs</LastGenOutput>
 		</None>
 	</ItemGroup>
 

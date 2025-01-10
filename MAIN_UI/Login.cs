@@ -56,32 +56,29 @@ namespace MAIN_UI
             // Set the current user ID in UserService
             _userService.SetCurrentUserId(acc.UserId);
 
-            // Check if the user has the required role
-
-            // Here we will be checking if the user has a certain role by role id.
-            if (!HasRequiredRole(acc, 1)) // Assuming Role ID 2 is an admin or instructor role that is allowed to access to this application.
+            if (acc.UserRoles == null || !acc.UserRoles.Any() || acc.UserRoles.FirstOrDefault()?.Role == null || !IsValidRole(acc.UserRoles.FirstOrDefault()?.Role?.RoleName))
             {
                 MessageBox.Show("Bạn không có quyền để vào hệ thống", "Access denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+
             MainForm mainForm = new MainForm(_userService);
-            mainForm.taiKhoan = acc;
+            mainForm.user = acc;
             mainForm.Show();
             this.Hide();
 
         }
-        private bool HasRequiredRole(User user, int roleId)
+        private bool IsValidRole(string roleName)
         {
-            var userRoles = _userRoleService.GetUserRolesByUserId(user.UserId);
-            return userRoles.Any(ur => ur.RoleId == roleId);
+            return roleName == "Administrator" || roleName == "Lecturer" || roleName == "Student";
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
 
         }
-       
+
         private void tbpassword_TextChanged(object sender, EventArgs e)
         {
 

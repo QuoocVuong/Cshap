@@ -1,4 +1,6 @@
-﻿namespace MAIN_UI
+﻿using DockStyle = System.Windows.Forms.DockStyle;
+
+namespace MAIN_UI
 {
     partial class DiemForm
     {
@@ -59,6 +61,7 @@
             cbbInputHinhThucThi = new ComboBox();
             label13 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnxemdiembangdiem = new Button();
             label20 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             dgvDiem = new DataGridView();
@@ -415,6 +418,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15.772871F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 7.88643551F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.7932339F));
+            tableLayoutPanel1.Controls.Add(btnxemdiembangdiem, 3, 7);
             tableLayoutPanel1.Controls.Add(label20, 2, 4);
             tableLayoutPanel1.Controls.Add(label2, 0, 1);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 9);
@@ -473,6 +477,17 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.Size = new Size(1447, 719);
             tableLayoutPanel1.TabIndex = 31;
+            // 
+            // btnxemdiembangdiem
+            // 
+            btnxemdiembangdiem.Location = new Point(863, 282);
+            btnxemdiembangdiem.Margin = new Padding(3, 2, 3, 2);
+            btnxemdiembangdiem.Name = "btnxemdiembangdiem";
+            btnxemdiembangdiem.Size = new Size(195, 22);
+            btnxemdiembangdiem.TabIndex = 49;
+            btnxemdiembangdiem.Text = "xem diem bang diem";
+            btnxemdiembangdiem.UseVisualStyleBackColor = true;
+            btnxemdiembangdiem.Click += btnxemdiembangdiem_Click;
             // 
             // label20
             // 
@@ -763,5 +778,6 @@
         private Label label20;
         private ComboBox cbbFilterByHinhThucThi;
         private Button btnXemDanhSachDiem;
+        private Button btnxemdiembangdiem;
     }
 }

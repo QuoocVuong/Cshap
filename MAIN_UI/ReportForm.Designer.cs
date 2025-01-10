@@ -1,4 +1,6 @@
-﻿namespace MAIN_UI
+﻿using DockStyle = System.Windows.Forms.DockStyle;
+
+namespace MAIN_UI
 {
     partial class ReportForm
     {
@@ -40,6 +42,7 @@
             reportViewer1.ServerReport.BearerToken = null;
             reportViewer1.Size = new Size(800, 450);
             reportViewer1.TabIndex = 0;
+            reportViewer1.Load += reportViewer1_Load;
             // 
             // reportViewer2
             // 

@@ -52,7 +52,7 @@ namespace QLDKhoa_CNTT.BLL.Services
         }
         public List<Diem> GetDiemByNganhHoc(int idNganhHoc)
         {
-            using (var context = new QuanLyDiemKhoaCNTTContext())
+            using (var context = new QuanLyDiemKhoaCnttContext())
             {
                 var danhSachDiem = context.Diems
                    .Where(d => d.IdSinhVienNavigation.IdLopNavigation.IdNganh == idNganhHoc)

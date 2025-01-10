@@ -17,6 +17,9 @@ namespace MAIN_UI
     {
         private SinhVienService _sinhVienservice;
         private LopHocService _lopHocService = new();
+        private UserService _userService = new(); // Thêm UserService
+        private UserRoleService _userRolesService = new(); // Thêm UserRolesService
+        private RolesService _rolesService = new(); // Thêm RolesService
         private int? _selectedLops = null;
         public SinhVienForm()
         {
@@ -85,6 +88,8 @@ namespace MAIN_UI
             dgvSinhVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
             dgvSinhVien.Columns["IdLop"].HeaderText = "Lớp";
             dgvSinhVien.Columns["IdLopNavigation"].Visible = false;
+            dgvSinhVien.Columns["UserId"].Visible = false; // Ẩn cột UserId
+            dgvSinhVien.Columns["User"].Visible = false; // Ẩn cột User navigation
             dgvSinhVien.Columns["Diems"].Visible = false;
             dgvSinhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; // Lấp đầy toàn bộ DataGridView
             //Bỏ chọn sau khi load data
@@ -138,16 +143,11 @@ namespace MAIN_UI
 
                 }
 
-
-
-
-
-                // Lấy đối tượng NganhHoc
-
+                // Lấy đối tượng LopHoc
                 var lopHoc = _lopHocService.GetALopHoc(sinhVien.IdLop);
                 if (lopHoc != null)
                 {
-                    txtLop.Text = lopHoc.TenLop; // Hiển thị tên ngành
+                    txtLop.Text = lopHoc.TenLop; // Hiển thị tên lớp
                 }
                 else
                 {
@@ -160,7 +160,13 @@ namespace MAIN_UI
             }
         }
         private void FillterDataGripByLops()
+
         {
+            if (_sinhVienservice == null)
+            {
+                _sinhVienservice = new SinhVienService();
+            }
+
             if (cbbLocTheoLop.SelectedIndex == 0 && cbbLocTheoLop.SelectedValue is int && (int)cbbLocTheoLop.SelectedValue == -1)
             {
                 LoadDataInToDataGripViewLopHoc();
@@ -168,26 +174,30 @@ namespace MAIN_UI
             }
             if (int.TryParse(cbbLocTheoLop.SelectedValue?.ToString(), out int idLop))
             {
-                //var result = _sinhVienservice.GetAllSinhVien().Where(sv => sv.IdLop == idLop).ToList();
                 dgvSinhVien.DataSource = null;
                 dgvSinhVien.DataSource = _sinhVienservice.GetAllSinhVien().Where(sv => sv.IdLop == idLop).ToList();
                 ReNameAndHideCollumn();
                 dgvSinhVien.CurrentCell = null;
-                //MakeBlankOfTextBox();
                 dgvSinhVien_SelectionChanged(null, null);
             }
-            else if (cbbLocTheoLop.SelectedValue is LopHoc lopHoc)
+            else if (cbbLocTheoLop.SelectedValue != null)
             {
-                var result = _sinhVienservice.GetAllSinhVien().Where(sv => sv.IdLop == lopHoc.Id).ToList();
-                dgvSinhVien.DataSource = null;
-                dgvSinhVien.DataSource = result;
-                ReNameAndHideCollumn();
-                _selectedLops = lopHoc.Id;
-                dgvSinhVien.CurrentCell = null;
-                //MakeBlankOfTextBox();
-                dgvSinhVien_SelectionChanged(null, null);
+                LopHoc lopHoc = cbbLocTheoLop.SelectedValue as LopHoc;
+
+                if (lopHoc != null)
+                {
+                    var result = _sinhVienservice.GetAllSinhVien().Where(sv => sv.IdLop == lopHoc.Id).ToList();
+                    dgvSinhVien.DataSource = null;
+                    dgvSinhVien.DataSource = result;
+                    ReNameAndHideCollumn();
+                    _selectedLops = lopHoc.Id;
+                    dgvSinhVien.CurrentCell = null;
+                    dgvSinhVien_SelectionChanged(null, null);
+                }
             }
             dgvSinhVien.Columns["IdLopNavigation"].Visible = false;
+            dgvSinhVien.Columns["UserId"].Visible = false;
+            dgvSinhVien.Columns["User"].Visible = false;
             dgvSinhVien.Columns["Diems"].Visible = false;
         }
 
@@ -226,6 +236,20 @@ namespace MAIN_UI
                     MessageBox.Show("Không tìm thấy Sinh Vien.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                // Lấy UserId của sinh viên để xóa User tương ứng
+                if (sinhVien.UserId.HasValue)
+                {
+                    var userToDelete = _userService.GetAUser(sinhVien.UserId.Value);
+                    if (userToDelete != null)
+                    {
+                        // Xóa UserRoles trước
+                        _userRolesService.DeleteUserRolesByUserId(userToDelete.UserId);
+                        // Sau đó xóa User
+                        _userService.DeleteAnUser(userToDelete.UserId);
+                    }
+                }
+
                 // co id roi bat dau xoa
                 DialogResult result = MessageBox.Show($"Ban Co Chac Muon Xoa Sinh Vien: {sinhVien.TenSinhVien}.", "Xac Nhan Xoa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -257,10 +281,11 @@ namespace MAIN_UI
             {
                 themSuaSinhVien.SelecedValueLops = _selectedLops;
             }
+            themSuaSinhVien.IsNew = true; // Đánh dấu là thêm mới
             themSuaSinhVien.ShowDialog();
         }
 
-        private void ThemSuaSinhVien_DataSaved(object? sender, ThemSuaSinhVien.DataSavedEventArgs e)
+        private async void ThemSuaSinhVien_DataSaved(object? sender, ThemSuaSinhVien.DataSavedEventArgs e)
         {
             object selectedValue = e.SelecedValueLops;
             FillterDataGripByLops();
@@ -269,7 +294,6 @@ namespace MAIN_UI
                 cbbLocTheoLop.SelectedValue = selectedValue;
             }
             MakeBlankOfTextBox();
-
         }
 
         private void Sua_Click(object sender, EventArgs e)
@@ -288,8 +312,9 @@ namespace MAIN_UI
             {
                 themSuaSinhVien.SelecedValueLops = _selectedLops;
             }
+            themSuaSinhVien.IsNew = false; // Đánh dấu là sửa
             themSuaSinhVien.ShowDialog();
         }
-    }
 
+    }
 }

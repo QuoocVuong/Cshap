@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QLDKhoa-CNTT.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+14339e3704b0555df19458fd473a2879c7eb9b9e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42cda44dce2064f2a59d693e92cf3dbb37d5b67b")]
 [assembly: System.Reflection.AssemblyProductAttribute("QLDKhoa-CNTT.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QLDKhoa-CNTT.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

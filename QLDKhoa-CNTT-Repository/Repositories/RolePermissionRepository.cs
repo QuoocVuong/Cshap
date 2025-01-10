@@ -8,11 +8,11 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class RolePermissionRepository
     {
-        private readonly QuanLyDiemKhoaCNTTContext _context;
+        private readonly QuanLyDiemKhoaCnttContext _context;
 
         public RolePermissionRepository()
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
         }
 
         public IEnumerable<RolePermission> GetPermissionsByRoleId(int roleId)

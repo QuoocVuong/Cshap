@@ -1,7 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="DiemDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="DiemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DiemForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormKhoaVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GiangVienForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="HocKyForm.cs">
@@ -22,6 +34,9 @@
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MainForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MonHocForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -35,6 +50,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SinhVienForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ThemSuaGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ThemSuaLopHoc.cs">
@@ -51,16 +69,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Update="DataSet12345.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Update="DataSetChinh.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Update="DataSetDiem.xsd">
+    <None Update="DataSet1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Update="DataSetMain.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="MainDataSet.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

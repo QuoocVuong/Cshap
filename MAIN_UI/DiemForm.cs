@@ -14,7 +14,7 @@ namespace MAIN_UI
     public partial class DiemForm : Form
     {
 
-        private readonly QuanLyDiemKhoaCNTTContext _dbContext;
+        private readonly QuanLyDiemKhoaCnttContext _dbContext;
         //private readonly UserRepository _userRepository;
         //private readonly UserRoleRepository _userRoleRepository;
         //private readonly RolePermissionRepository _rolePermissionRepository;
@@ -28,7 +28,7 @@ namespace MAIN_UI
         private HocKyService hockyService = new();
         private NamHocService namHocService = new();
 
-       // private readonly UserService _userService= new ();
+        // private readonly UserService _userService= new ();
         private readonly UserRoleService _userRoleService = new();
         private readonly RolePermissionService _rolePermissionService = new();
 
@@ -43,7 +43,7 @@ namespace MAIN_UI
         private int? currentEditId = null;
         //private readonly NganhHocService _nganhHocService;
         private int _currentUserId;
-        private readonly UserService _userService; 
+        private readonly UserService _userService;
 
 
         private List<string> userPermissions = new List<string>();
@@ -107,12 +107,12 @@ namespace MAIN_UI
                 // Enable or disable controls according to permissions
 
                 // Buttons
-                btnThem.Enabled = userPermissions.Contains("add_diem");
-                btnSua.Enabled = userPermissions.Contains("edit_diem");
-                btnXoa.Enabled = userPermissions.Contains("delete_diem");
+                btnThem.Enabled = userPermissions.Contains("add_student");
+                btnSua.Enabled = userPermissions.Contains("edit_student");
+                btnXoa.Enabled = userPermissions.Contains("delete_student");
 
                 // Menu items, etc
-                btnXemDanhSachDiem.Enabled = userPermissions.Contains("view_diem"); // assuming you have a view diem permission.
+                btnXemDanhSachDiem.Enabled = userPermissions.Contains("view_course"); // assuming you have a view diem permission.
             }
             else
             {
@@ -1058,7 +1058,7 @@ namespace MAIN_UI
             {
                 if (dgvDiem.Rows[e.RowIndex].DataBoundItem is Diem diem)
                 {
-                    using (var context = new QuanLyDiemKhoaCNTTContext())
+                    using (var context = new QuanLyDiemKhoaCnttContext())
                     {
                         if (context != null)
                         {
@@ -1339,7 +1339,7 @@ namespace MAIN_UI
         private void btnThem_Click(object sender, EventArgs e)
         {
             isAddingNew = true;
-            if (!userPermissions.Contains("add_diem"))
+            if (!userPermissions.Contains("add_student"))
             {
                 MessageBox.Show("Bạn không có quyền thêm điểm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1396,7 +1396,7 @@ namespace MAIN_UI
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (!userPermissions.Contains("edit_diem"))
+            if (!userPermissions.Contains("edit_student"))
             {
                 MessageBox.Show("Bạn không có quyền sửa điểm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1518,7 +1518,7 @@ namespace MAIN_UI
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (!userPermissions.Contains("delete_diem"))
+            if (!userPermissions.Contains("delete_student"))
             {
                 MessageBox.Show("Bạn không có quyền xóa điểm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1602,12 +1602,23 @@ namespace MAIN_UI
 
         private void btnXemDanhSachDiem_Click(object sender, EventArgs e)
         {
-            if (!userPermissions.Contains("view_diem"))
+            if (!userPermissions.Contains("view_student"))
             {
                 MessageBox.Show("Bạn không có quyền xem danh sách điểm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             ReportForm reportForm = new ReportForm("xdsd");
+            reportForm.ShowDialog();
+        }
+
+        private void btnxemdiembangdiem_Click(object sender, EventArgs e)
+        {
+            if (!userPermissions.Contains("view_student"))
+            {
+                MessageBox.Show("Bạn không có quyền  điểm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            ReportForm reportForm = new ReportForm("xemdiem");
             reportForm.ShowDialog();
         }
     }

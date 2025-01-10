@@ -234,3 +234,10 @@ C:\CSharp\QLDKHOA_CNTT\MAIN_UI\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysi
 C:\CSharp\QLDKHOA_CNTT\MAIN_UI\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\CSharp\QLDKHOA_CNTT\MAIN_UI\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\CSharp\QLDKHOA_CNTT\MAIN_UI\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\CSharp\QLDKHOA_CNTT\MAIN_UI\obj\Debug\net8.0-windows\MAIN_UI.DiemDetailForm.resources
+C:\CSharp\QLDKHOA_CNTT\MAIN_UI\obj\Debug\net8.0-windows\MAIN_UI.DiemForm1.resources
+C:\CSharp\QLDKHOA_CNTT\MAIN_UI\bin\Debug\net8.0-windows\BangDiem.rdlc
+C:\CSharp\QLDKHOA_CNTT\MAIN_UI\obj\Debug\net8.0-windows\MAIN_UI.GiangVienForm.resources
+C:\CSharp\QLDKHOA_CNTT\MAIN_UI\obj\Debug\net8.0-windows\MAIN_UI.ThemSuaGiangVien.resources
+C:\CSharp\QLDKHOA_CNTT\MAIN_UI\obj\Debug\net8.0-windows\QLDKhoa_CNTT.GUI.FormKhoaVien.resources
+C:\CSharp\QLDKHOA_CNTT\MAIN_UI\obj\Debug\net8.0-windows\MAIN_UI.MainForm1.resources

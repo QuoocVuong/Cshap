@@ -9,7 +9,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class NamHocRepository
     {
-        private QuanLyDiemKhoaCNTTContext context = new();
+        private QuanLyDiemKhoaCnttContext context = new();
         public List<NamHoc> GetAll()
         {
             return context.NamHocs.ToList();

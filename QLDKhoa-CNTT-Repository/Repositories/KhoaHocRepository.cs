@@ -8,29 +8,29 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class KhoaHocRepository
     {
-        private QuanLyDiemKhoaCNTTContext _context;
+        private QuanLyDiemKhoaCnttContext _context;
 
         public Khoa? Get(int id)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             //return _context.KhoaHocs; //tuong duong select * from
             return _context.Khoas.Find(id);
         }
         public List<Khoa> GetAll()
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             return _context.Khoas.ToList();
 
         }
         public void Create(Khoa khoaHoc)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             _context.Khoas.Add(khoaHoc);
             _context.SaveChanges();
         }
         public void Update(Khoa khoaHoc)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             _context.Khoas.Update(khoaHoc);
             _context.SaveChanges();
         }
@@ -106,7 +106,7 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 
         public bool Delete(int id)
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try

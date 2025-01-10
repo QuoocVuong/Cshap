@@ -8,11 +8,11 @@ namespace QLDKhoa_CNTT.DAL.Repositories
 {
     public class DiemRepository
     {
-        private readonly QuanLyDiemKhoaCNTTContext _context;
+        private readonly QuanLyDiemKhoaCnttContext _context;
 
         public DiemRepository()
         {
-            _context = new QuanLyDiemKhoaCNTTContext();
+            _context = new QuanLyDiemKhoaCnttContext();
         }
 
         public List<Diem> GetAll()
